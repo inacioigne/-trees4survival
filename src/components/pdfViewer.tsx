@@ -1,16 +1,23 @@
 import { Viewer, Worker } from "@react-pdf-viewer/core";
 import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
 
-function PdfWiewer() {
+interface Props {
+  handle: string
+}
+
+function PdfWiewer({handle}: Props) {
   const defaultLayoutPluginInstance = defaultLayoutPlugin();
-  console.log(Viewer);
+
+  
+
   return (
     <div>
-
       <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.5.141/build/pdf.worker.js">
-        <div style={{ height: "750px", border: "solid" }}>
+        <div style={{ height: "750px" }}>
           <Viewer
-            fileUrl="/pdf/guarana.pdf"
+            fileUrl={`/pdf/${handle}.pdf`}
+            httpHeaders={{ 'Content-Type': 'application/pdf',
+            "Access-Control-Allow-Origin": "*",}}
             plugins={[defaultLayoutPluginInstance]}
           />
         </div>

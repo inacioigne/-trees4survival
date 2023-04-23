@@ -3,6 +3,9 @@ import { NextPage, GetStaticProps } from "next";
 import { Paper, Box, Grid, Typography, Button } from "@mui/material/";
 import { grey } from "@mui/material/colors";
 
+import Link from 'next/link'
+
+
 // Axios
 import api from "@/lib/api";
 
@@ -22,6 +25,9 @@ function MainPost({ item }: Props) {
   const [resumo] = item.metadados.filter(
     (dc) => dc.key == "dc.description.resumo"
   );
+  const [handle] = item.metadados.filter((dc) => dc.key == "dc.identifier.uri");
+  const pdf = handle.value.split("/")[5]
+  // console.log("PDF: ",pdf)
 
   return (
     <Paper
@@ -61,7 +67,11 @@ function MainPost({ item }: Props) {
             <Typography variant="subtitle1" color={grey[100]} paragraph>
               {resumo.value}
             </Typography>
+            <Link href={`/article/${pdf}`}>
             <Button variant="contained">Ler Artigo</Button>
+              
+            </Link>
+            
           </Box>
         </Grid>
       </Grid>

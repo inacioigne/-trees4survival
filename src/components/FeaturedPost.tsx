@@ -20,10 +20,13 @@ export default function FeaturedPost({ item }: Props) {
   const [resumo] = item.metadados.filter(
     (dc) => dc.key == "dc.description.resumo"
   );
+  const [handle] = item.metadados.filter((dc) => dc.key == "dc.identifier.uri");
+  const pdf = handle.value.split("/")[5]
+  // console.log("PDF: ", pdf)
 
   return (
     <Grid item xs={12} md={6}>
-      <CardActionArea component="a" href="#">
+      <CardActionArea component="a" href={`/article/${pdf}`}>
         <Card sx={{ display: "flex", flexDirection: "column" }}
         >
           <CardContent sx={{ flex: 1 }}>
