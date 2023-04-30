@@ -9,14 +9,12 @@ import { Item } from "../../lib/types/interfaces";
 import axios, { AxiosInstance } from "axios";
 
 interface Props {
-  // item: Item;
-  // pdfData: any;
+
   handle: string;
 }
 
 function Article({ handle }: Props) {
-  // console.log("A: ", handle)
-  //const [title] = item.filter((dc) => dc.key == "dc.title");
+
 
   return (
     <div>

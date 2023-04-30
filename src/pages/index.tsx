@@ -1,6 +1,6 @@
 import { GetStaticProps } from "next";
 // Components
-import Header from "@/components/Header";
+// import Header from "@/components/Header";
 import MainPost from "@/components/MainPost";
 import { Grid, Divider } from "@mui/material/";
 
@@ -26,12 +26,9 @@ interface Props {
   items: Item[];
 }
 export default function Home({ main, items }: Props) {
-  // console.log("CLIENT: ", items)
 
   return (
     <div>
-      <Header title="Trees for Survival" />
-      <Divider />
       <main>
         <MainPost item={main} />
         <Grid container spacing={4}>
@@ -45,7 +42,6 @@ export default function Home({ main, items }: Props) {
 }
 
 async function GetData(obj: any) {
-  //console.log("GetData", obj.UUID);
 
   const item: Item = await api
     .get(`items/${obj.UUID}/metadata`, {
@@ -98,7 +94,6 @@ export async function getStaticProps() {
     return item;
   });
 
-  // const item2:Item = await GetData('8656c9a0-96b3-4b57-bf63-1f64224a5956')
   const todos = await Promise.all(listaItems).then((values) => {
     return values;
   });
