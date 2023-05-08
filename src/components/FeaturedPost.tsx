@@ -9,10 +9,10 @@ import {
   Divider 
 } from "@mui/material/";
 
-import { Item } from "../lib/types/interfaces";
+import { Item, Post } from "../lib/types/interfaces";
 
 interface Props {
-  item: Item;
+  item: Post;
 }
 
 export default function FeaturedPost({ item }: Props) {

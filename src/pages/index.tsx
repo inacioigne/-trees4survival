@@ -6,20 +6,10 @@ import { Grid, Divider } from "@mui/material/";
 
 // Axios
 import api from "@/lib/api";
-import { loadPosts } from "@/lib/load";
-
-import MainArticle from "../publications/agroforestry/agro1.json";
 
 import { Item } from "../lib/types/interfaces";
 import FeaturedPost from "@/components/FeaturedPost";
 
-const sections = [
-  { title: "Sistemas Agroflorestais", url: "#" },
-  { title: "Agricultura Familiar", url: "#" },
-  { title: "Melhoramento Genético de Espécies Arbóreas", url: "#" },
-  { title: "Meliponicultura Cabocla", url: "#" },
-  { title: "Estatística Experimental", url: "#" },
-];
 
 interface Props {
   main: Item;

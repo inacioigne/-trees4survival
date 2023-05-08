@@ -6,6 +6,7 @@ import {
   IconButton,
   Divider,
   Box,
+  Grid,
 } from "@mui/material/";
 // import { makeStyles } from '@material-ui/core/styles';
 import { makeStyles } from "@mui/styles";
@@ -91,6 +92,7 @@ function Header(props: HeaderProps) {
         variant="dense"
         sx={{ justifyContent: "space-between", overflowX: "auto" }}
       >
+        <Grid container spacing={2}>
         <Link href={"/"}>
           <Button
             className={
@@ -117,7 +119,6 @@ function Header(props: HeaderProps) {
             Agricultura Familiar
           </Button>
         </Link>
-
         <Button
           size="small"
           startIcon={<GiPalmTree />}
@@ -139,6 +140,9 @@ function Header(props: HeaderProps) {
         >
           Estatística Experimental
         </Button>
+
+        </Grid>
+       
       </Toolbar>
     </>
   );
