@@ -66,13 +66,26 @@ export async function getStaticProps() {
 
   const listItems = [
     {
-      UUID: "	aead10cd-99e7-47b2-b645-2769e6be8f79",
-      // img: "/image/pupunheira.jfif",
+      UUID: "aead10cd-99e7-47b2-b645-2769e6be8f79",
     },
     {
-      UUID: "b2cccf80-95b6-451f-9eef-66b3e7ea70d2",
-      // img: "/image/pupunheira.jfif",
+      UUID: "fcc3ebc1-d302-4fd8-87fb-f3c4d6d3aee3",
     },
+    {
+      UUID: "99a802c7-9800-492f-a338-2d332c83ec5e",
+    },
+    {
+      UUID: "bff38635-d43c-4182-afe7-8879348a292e",
+    },
+    {
+      UUID: "60bf7638-614a-49e7-a44b-f83a73191beb",
+    },
+    {
+      UUID: "4e4cac8e-a0cb-4376-a608-83f37381ad19",
+    },
+    {
+      UUID: "23618074-deb3-44d9-916a-85e973f251c7",
+    } 
   ];
 
   const listaItems = await listItems.map(async (obj) => {
