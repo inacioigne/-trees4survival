@@ -20,10 +20,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
     const pdfData: ArrayBuffer = response.data;
     
-
-  // console.log("RESPONSE: ", pdfData);
-
-  // res.status(200).json({ message: `${uuid}` })
   res.setHeader("Content-Type", "application/pdf");
   res.setHeader("Content-Disposition", 'attachment; filename="myfile.pdf"');
   res.status(200).send(pdfData);

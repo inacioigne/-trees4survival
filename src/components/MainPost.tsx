@@ -27,7 +27,6 @@ function MainPost({ item }: Props) {
   );
   const [handle] = item.metadados.filter((dc) => dc.key == "dc.identifier.uri");
   const pdf = handle.value.split("/")[5]
-  console.log("UU: ", item)
 
 
   return (

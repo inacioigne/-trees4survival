@@ -7,6 +7,8 @@ import {
   Divider,
   Box,
   Grid,
+  Menu,
+  MenuItem,
 } from "@mui/material/";
 // import { makeStyles } from '@material-ui/core/styles';
 import { makeStyles } from "@mui/styles";
@@ -25,7 +27,7 @@ import {
   GiPalmTree,
   GiHoneypot,
 } from "react-icons/gi";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { blue } from "@mui/material/colors";
 
 interface HeaderProps {
@@ -33,6 +35,15 @@ interface HeaderProps {
 }
 
 function Header(props: HeaderProps) {
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   const useStyles = makeStyles((theme) => ({
     button: {
       textTransform: "none",
@@ -54,7 +65,7 @@ function Header(props: HeaderProps) {
 
   useEffect(() => {
     // const url = pathname + searchParams.toString();
-    console.log("URL: ", pathname);
+
     // You can now use the current URL
   }, [pathname]);
 
@@ -92,7 +103,7 @@ function Header(props: HeaderProps) {
         variant="dense"
         sx={{ justifyContent: "space-between", overflowX: "auto" }}
       >
-        <Grid container spacing={2}>
+        <Grid container spacing={2} sx={{ mt: "5px", justifyContent: 'space-between'}}>
         <Link href={"/"}>
           <Button
             className={
@@ -115,10 +126,15 @@ function Header(props: HeaderProps) {
                 ? `${classes.button} ${classes.active}`
                 : classes.button
             }
+            aria-controls={open ? 'basic-menu' : undefined}
+            aria-haspopup="true"
+            aria-expanded={open ? 'true' : undefined}
+            onClick={handleClick}
           >
             Agricultura Familiar
           </Button>
         </Link>
+
         <Button
           size="small"
           startIcon={<GiPalmTree />}
@@ -144,6 +160,18 @@ function Header(props: HeaderProps) {
         </Grid>
        
       </Toolbar>
+      <Menu
+        id="basic-menu"
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        MenuListProps={{
+          'aria-labelledby': 'basic-button',
+        }}
+      >
+        <MenuItem onClick={handleClose}>Desenho agroflorestal</MenuItem>
+        <MenuItem onClick={handleClose}>Agricultura e pobreza</MenuItem>
+      </Menu>
     </>
   );
 }
