@@ -9,11 +9,6 @@ import Link from 'next/link'
 // Axios
 import api from "@/lib/api";
 
-// interface DC {
-//   key: string;
-//   value: string;
-// }
-
 import { Item } from "../lib/types/interfaces";
 
 interface Props {
@@ -27,7 +22,7 @@ function MainPost({ item }: Props) {
   );
   const [handle] = item.metadados.filter((dc) => dc.key == "dc.identifier.uri");
   const pdf = handle.value.split("/")[5]
-  // console.log("PDF: ",pdf)
+
 
   return (
     <Paper
