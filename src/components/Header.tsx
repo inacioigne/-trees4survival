@@ -3,14 +3,13 @@ import {
   Toolbar,
   Button,
   Typography,
-  IconButton,
-  Divider,
+  // IconButton,
+  // Divider,
   Box,
   Grid,
   Menu,
   MenuItem,
 } from "@mui/material/";
-// import { makeStyles } from '@material-ui/core/styles';
 import { makeStyles } from "@mui/styles";
 // Next Components
 import Image from "next/image";
@@ -49,7 +48,7 @@ function Header(props: HeaderProps) {
       textTransform: "none",
     },
     active: {
-      // bgcolor: blue[500]
+      textTransform: "none",
       backgroundColor: blue[500],
       color: "white",
       "&:hover": {
@@ -64,8 +63,7 @@ function Header(props: HeaderProps) {
   const pathname = usePathname();
 
   useEffect(() => {
-    // const url = pathname + searchParams.toString();
-    // You can now use the current URL
+
   }, [pathname]);
 
   return (
@@ -171,7 +169,10 @@ function Header(props: HeaderProps) {
         }}
         sx={{ textTransform: "none", textDecoration: "none"}}
       >
+        <Link style={{textDecoration: "none"}} href={"/family_farming"}>
         <MenuItem onClick={handleClose} >Desenho agroflorestal</MenuItem>
+        </Link>
+       
         <Link style={{textDecoration: "none"}} href={"/family_farming/pequenos_produtores"}>
           <MenuItem  onClick={handleClose}>
             Pequenos produtores
