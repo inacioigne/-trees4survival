@@ -1,7 +1,6 @@
 export type Article = {
   uuid: string;
   handle: string;
-  //title: string;
 };
 
 export const articles: Array<Article> = [
@@ -21,4 +20,8 @@ export const articles: Array<Article> = [
     uuid: "8656c9a0-96b3-4b57-bf63-1f64224a5956",
     handle: "39112",
   },
+  {
+    uuid: "	3b86e318-ffb4-4181-9c0d-528a3c03b161",
+    handle: "34557",
+  }
 ];
