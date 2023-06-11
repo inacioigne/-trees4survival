@@ -12,7 +12,6 @@ interface Props {
 export default function PequenosProdutores({ main }: Props) {
   return (
     <main>
-      <h1>PequenosProdutores</h1>
       <MainPost item={main} />
     </main>
   );
@@ -28,7 +27,8 @@ export async function getStaticProps() {
       .then((response) => {
         let item = {
           metadados: response.data,
-          image: "/image/family_farming.jpg",
+          image: "/image/pequenos_produtores.jpg",
+          uuid: "3b86e318-ffb4-4181-9c0d-528a3c03b161"
         };
   
         return item;

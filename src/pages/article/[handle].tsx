@@ -14,11 +14,12 @@ interface Props {
 }
 
 function Article({ handle }: Props) {
+  // console.log("Handle: ", handle)
 
 
   return (
     <div>
-      <PdfWiewer handle={handle} />
+      <PdfWiewer uuid={handle} />
     </div>
   );
 }
@@ -38,7 +39,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 export const getStaticPaths: GetStaticPaths = async () => {
 
   const path = articles.map((artigo) => ({
-    params: { handle: artigo.handle },
+    params: { handle: artigo.uuid },
   }));
 
   return {

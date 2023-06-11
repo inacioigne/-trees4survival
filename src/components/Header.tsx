@@ -65,7 +65,6 @@ function Header(props: HeaderProps) {
 
   useEffect(() => {
     // const url = pathname + searchParams.toString();
-
     // You can now use the current URL
   }, [pathname]);
 
@@ -103,62 +102,64 @@ function Header(props: HeaderProps) {
         variant="dense"
         sx={{ justifyContent: "space-between", overflowX: "auto" }}
       >
-        <Grid container spacing={2} sx={{ mt: "5px", justifyContent: 'space-between'}}>
-        <Link href={"/"}>
-          <Button
-            className={
-              pathname == "/"
-                ? `${classes.button} ${classes.active}`
-                : classes.button
-            }
-            size="small"
-            startIcon={<GiBurningForest />}
-          >
-            Sistemas Agroflorestais
-          </Button>
-        </Link>
-        <Link href={"/family_farming"}>
-          <Button
-            size="small"
-            startIcon={<GiFarmer />}
-            className={
-              pathname == "/family_farming"
-                ? `${classes.button} ${classes.active}`
-                : classes.button
-            }
-            aria-controls={open ? 'basic-menu' : undefined}
-            aria-haspopup="true"
-            aria-expanded={open ? 'true' : undefined}
-            onClick={handleClick}
-          >
-            Agricultura Familiar
-          </Button>
-        </Link>
+        <Grid
+          container
+          spacing={2}
+          sx={{ mt: "5px", justifyContent: "space-between" }}
+        >
+          <Link href={"/"}>
+            <Button
+              className={
+                pathname == "/"
+                  ? `${classes.button} ${classes.active}`
+                  : classes.button
+              }
+              size="small"
+              startIcon={<GiBurningForest />}
+            >
+              Sistemas Agroflorestais
+            </Button>
+          </Link>
+          <Link href={"/family_farming"}>
+            <Button
+              size="small"
+              startIcon={<GiFarmer />}
+              className={
+                pathname == "/family_farming"
+                  ? `${classes.button} ${classes.active}`
+                  : classes.button
+              }
+              aria-controls={open ? "basic-menu" : undefined}
+              aria-haspopup="true"
+              aria-expanded={open ? "true" : undefined}
+              onClick={handleClick}
+            >
+              Agricultura Familiar
+            </Button>
+          </Link>
 
-        <Button
-          size="small"
-          startIcon={<GiPalmTree />}
-          sx={{ textTransform: "none" }}
-        >
-          Melhoramento Genético de Espécies Arbóreas
-        </Button>
-        <Button
-          size="small"
-          startIcon={<GiHoneypot />}
-          sx={{ textTransform: "none" }}
-        >
-          Meliponicultura Cabocla
-        </Button>
-        <Button
-          size="small"
-          startIcon={<ImStatsDots />}
-          sx={{ textTransform: "none" }}
-        >
-          Estatística Experimental
-        </Button>
-
+          <Button
+            size="small"
+            startIcon={<GiPalmTree />}
+            sx={{ textTransform: "none" }}
+          >
+            Melhoramento Genético de Espécies Arbóreas
+          </Button>
+          <Button
+            size="small"
+            startIcon={<GiHoneypot />}
+            sx={{ textTransform: "none" }}
+          >
+            Meliponicultura Cabocla
+          </Button>
+          <Button
+            size="small"
+            startIcon={<ImStatsDots />}
+            sx={{ textTransform: "none" }}
+          >
+            Estatística Experimental
+          </Button>
         </Grid>
-       
       </Toolbar>
       <Menu
         id="basic-menu"
@@ -166,11 +167,16 @@ function Header(props: HeaderProps) {
         open={open}
         onClose={handleClose}
         MenuListProps={{
-          'aria-labelledby': 'basic-button',
+          "aria-labelledby": "basic-button",
         }}
+        sx={{ textTransform: "none", textDecoration: "none"}}
       >
-        <MenuItem onClick={handleClose}>Desenho agroflorestal</MenuItem>
-        <MenuItem onClick={handleClose}>Agricultura e pobreza</MenuItem>
+        <MenuItem onClick={handleClose} >Desenho agroflorestal</MenuItem>
+        <Link style={{textDecoration: "none"}} href={"/family_farming/pequenos_produtores"}>
+          <MenuItem  onClick={handleClose}>
+            Pequenos produtores
+          </MenuItem>
+        </Link>
       </Menu>
     </>
   );

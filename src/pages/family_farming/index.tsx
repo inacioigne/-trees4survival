@@ -32,7 +32,7 @@ async function GetData(obj: any) {
       },
     })
     .then((response) => {
-      let item = { metadados: response.data, //image: obj.img 
+      let item = { metadados: response.data, uuid: obj.UUID
       };
 
       return item;
@@ -55,6 +55,7 @@ export async function getStaticProps() {
       let item = {
         metadados: response.data,
         image: "/image/family_farming.jpg",
+        uuid: "b2caf169-9dd6-40ff-9303-e75ccea4caa5"
       };
 
       return item;

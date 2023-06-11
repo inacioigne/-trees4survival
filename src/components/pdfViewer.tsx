@@ -2,13 +2,12 @@ import { Viewer, Worker } from "@react-pdf-viewer/core";
 import { defaultLayoutPlugin } from "@react-pdf-viewer/default-layout";
 
 interface Props {
-  handle: string
+  uuid: string
 }
 
-function PdfWiewer({handle}: Props) {
+function PdfWiewer({uuid}: Props) {
   const defaultLayoutPluginInstance = defaultLayoutPlugin();
-
-  
+  //  console.log("PdfWiewer", uuid)
 
   return (
     <div>
@@ -16,7 +15,7 @@ function PdfWiewer({handle}: Props) {
         <div style={{ height: "750px" }}>
           <Viewer
             // fileUrl={`/pdf/${handle}.pdf`}
-            fileUrl={`http://localhost:3000/api/30e17215-d854-4e31-98fd-f7931cb0c735`}
+            fileUrl={`http://localhost:3000/api/${uuid}`}
             httpHeaders={{ 'Content-Type': 'application/pdf',
             "Access-Control-Allow-Origin": "*",}}
             plugins={[defaultLayoutPluginInstance]}

@@ -40,7 +40,7 @@ async function GetData(obj: any) {
       },
     })
     .then((response) => {
-      let item = { metadados: response.data, image: obj.img };
+      let item = { metadados: response.data, image: obj.img, uuid: obj.UUID };
 
       return item;
     })
@@ -59,7 +59,7 @@ export async function getStaticProps() {
       },
     })
     .then((response) => {
-      let item = { metadados: response.data, image: "/image/saf.JPG" };
+      let item = { metadados: response.data, image: "/image/saf.JPG", uuid: "30e17215-d854-4e31-98fd-f7931cb0c735" };
 
       return item;
     })
@@ -87,8 +87,6 @@ export async function getStaticProps() {
   const todos = await Promise.all(listaItems).then((values) => {
     return values;
   });
-
-  // console.log("PRO:", todos);
 
   const items = { main: item, items: todos };
 

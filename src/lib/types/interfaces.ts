@@ -6,9 +6,11 @@ interface DC {
 
 export interface Item {
     metadados: DC[];
-    image: string
+    image: string,
+    uuid: string
   }
 
   export interface Post {
     metadados: DC[];
+    uuid: string
   }

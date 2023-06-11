@@ -21,7 +21,8 @@ function MainPost({ item }: Props) {
     (dc) => dc.key == "dc.description.resumo"
   );
   const [handle] = item.metadados.filter((dc) => dc.key == "dc.identifier.uri");
-  const pdf = handle.value.split("/")[5]
+  // const pdf = handle.value.split("/")[5]
+  const uuid = item.uuid
 
 
   return (
@@ -62,7 +63,7 @@ function MainPost({ item }: Props) {
             <Typography variant="subtitle1" color={grey[100]} paragraph>
               {resumo.value}
             </Typography>
-            <Link href={`/article/${pdf}`}>
+            <Link href={`/article/${uuid}`}>
             <Button variant="contained">Ler Artigo</Button>
               
             </Link>
