@@ -14,8 +14,8 @@ function PdfWiewer({uuid}: Props) {
       <Worker workerUrl="https://unpkg.com/pdfjs-dist@3.5.141/build/pdf.worker.js">
         <div style={{ height: "750px" }}>
           <Viewer
-            // fileUrl={`/pdf/${handle}.pdf`}
-            fileUrl={`http://localhost:3000/api/${uuid}`}
+            //fileUrl={`http://localhost:3000/api/${uuid}`}
+            fileUrl={`https://trees4survival.org/api/${uuid}`}
             httpHeaders={{ 'Content-Type': 'application/pdf',
             "Access-Control-Allow-Origin": "*",}}
             plugins={[defaultLayoutPluginInstance]}
